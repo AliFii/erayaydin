@@ -11,6 +11,14 @@
 |
 */
 
+Route::bind("post", function($value, $route) {
+    return \App\Post::where("slug", $value)->first();
+});
+
+Route::bind("page", function($value, $route) {
+    return \App\Page::where("slug", $value)->first();
+});
+
 Route::group(['middleware' => ['web']], function () {
 
     Route::group(["as" => "frontend.", "namespace" => "Frontend"], function() {
