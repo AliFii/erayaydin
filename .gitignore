@@ -1,3 +1,6 @@
+### Project ###
+public/assets
+
 ### Laravel ###
 .env
 

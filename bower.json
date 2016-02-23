@@ -1,0 +1,25 @@
+{
+  "name": "erayaydin",
+  "description": "Personal Blog",
+  "main": "gulpfile.js",
+  "authors": [
+    "Eray AYDIN <eray@webjektif.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/erayaydin/erayaydin",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3.3.6",
+    "font-awesome": "^4.5.0",
+    "html5shiv": "^3.7.3",
+    "respond": "^1.4.2",
+    "jquery": "^2.2.1"
+  }
+}

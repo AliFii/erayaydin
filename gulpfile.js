@@ -12,5 +12,15 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+    mix.less('app.less', 'public/assets/css')
+        .scripts([
+            './bower_components/jquery/dist/jquery.js',
+            './bower_components/bootstrap/dist/js/bootstrap.js',
+            'app.js'
+        ], 'public/assets/js/app.js')
+        .scripts([
+            './bower_components/html5shiv/dist/html5shiv.js',
+            './bower_components/respond/dest/respond.src.js'
+        ], 'public/assets/js/ie8.js')
+        .copy('./bower_components/font-awesome/fonts', 'public/assets/fonts');
 });
