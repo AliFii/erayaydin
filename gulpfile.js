@@ -23,13 +23,24 @@ elixir(function(mix) {
             './bower_components/respond/dest/respond.src.js'
         ], 'public/assets/js/ie8.js')
         .copy('./bower_components/font-awesome/fonts', 'public/assets/fonts')
-        .less(['./bower_components/AdminLTE/build/less/AdminLTE.less', './bower_components/AdminLTE/build/less/skins/skin-blue.less'], 'public/assets/css/backend.css')
+        .less([
+            './bower_components/bootstrap/less/bootstrap.less',
+            './bower_components/font-awesome/less/font-awesome.less',
+            './bower_components/Ionicons/less/ionicons.less',
+            './bower_components/AdminLTE/build/less/AdminLTE.less',
+            './bower_components/AdminLTE/build/less/skins/skin-blue.less'
+        ], 'public/assets/css/backend.css')
+        .copy('./bower_components/Ionicons/fonts', 'public/assets/fonts')
         .scripts([
             './bower_components/jquery/dist/jquery.js',
             './bower_components/bootstrap/dist/js/bootstrap.js',
             './bower_components/jquery-ui/jquery-ui.js',
             './bower_components/slimscroll/jquery.slimscroll.js',
             './bower_components/fastclick/lib/fastclick.js',
-            './bower_components/AdminLTE/dist/js/app.js'
-        ], 'public/assets/js/backend.js');
+            './bower_components/AdminLTE/dist/js/app.js',
+            ''
+        ], 'public/assets/js/backend.js')
+        .less(['./bower_components/iCheck/skins/square/blue.css'], 'public/assets/plugins/icheck/icheck.css')
+        .scripts(['./bower_components/iCheck/icheck.js'], 'public/assets/plugins/icheck/icheck.js')
+        .copy(['./bower_components/iCheck/skins/square/blue.png', './bower_components/iCheck/skins/square/blue@2x.png'], 'public/assets/plugins/icheck/');
 });

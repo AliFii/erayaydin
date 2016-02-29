@@ -31,21 +31,28 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::group(["as" => "backend.", "namespace" => "Backend", "prefix" => config("app.backend")], function(){
 
-        Route::get("/", ["as" => "dashboard.index", "uses" => "DashboardController@index"]);
+        Route::group(["middleware" => "guest"], function(){
+            Route::get("login", ["as" => "user.login", "uses" => "UserController@login"]);
+            Route::post("login", ["as" => "user.login", "uses" => "UserController@doLogin"]);
+        });
 
-        Route::get("post", ["as" => "post.index", "uses" => "PostController@index"]);
-        Route::get("post/create", ["as" => "post.create", "uses" => "PostController@create"]);
-        Route::post("post", ["as" => "post.store", "uses" => "PostController@store"]);
-        Route::get("post/{post}/edit", ["as" => "post.edit", "uses" => "PostController@edit"]);
-        Route::put("post/{post}", ["as" => "post.update", "uses" => "PostController@update"]);
-        Route::get("post/{post}/delete", ["as" => "post.destroy", "uses" => "PostController@destroy"]);
+        Route::group(["middleware" => "auth"], function(){
+            Route::get("/", ["as" => "dashboard.index", "uses" => "DashboardController@index"]);
 
-        Route::get("page", ["as" => "page.index", "uses" => "PageController@index"]);
-        Route::get("page/create", ["as" => "page.create", "uses" => "PageController@create"]);
-        Route::post("page", ["as" => "page.store", "uses" => "PageController@store"]);
-        Route::get("page/{page}/edit", ["as" => "page.edit", "uses" => "PageController@edit"]);
-        Route::put("page/{page}", ["as" => "page.update", "uses" => "PageController@update"]);
-        Route::get("page/{page}/delete", ["as" => "page.destroy", "uses" => "PageController@destroy"]);
+            Route::get("post", ["as" => "post.index", "uses" => "PostController@index"]);
+            Route::get("post/create", ["as" => "post.create", "uses" => "PostController@create"]);
+            Route::post("post", ["as" => "post.store", "uses" => "PostController@store"]);
+            Route::get("post/{post}/edit", ["as" => "post.edit", "uses" => "PostController@edit"]);
+            Route::put("post/{post}", ["as" => "post.update", "uses" => "PostController@update"]);
+            Route::get("post/{post}/delete", ["as" => "post.destroy", "uses" => "PostController@destroy"]);
+
+            Route::get("page", ["as" => "page.index", "uses" => "PageController@index"]);
+            Route::get("page/create", ["as" => "page.create", "uses" => "PageController@create"]);
+            Route::post("page", ["as" => "page.store", "uses" => "PageController@store"]);
+            Route::get("page/{page}/edit", ["as" => "page.edit", "uses" => "PageController@edit"]);
+            Route::put("page/{page}", ["as" => "page.update", "uses" => "PageController@update"]);
+            Route::get("page/{page}/delete", ["as" => "page.destroy", "uses" => "PageController@destroy"]);
+        });
 
     });
 });
