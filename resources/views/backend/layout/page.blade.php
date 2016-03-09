@@ -73,6 +73,12 @@
                         <i class="fa fa-dashboard"></i> <span>Pano</span>
                     </a>
                 </li>
+                <li class="header">SİSTEM</li>
+                <li @if(\Request::is(config("app.backend")."/user*")) class="active" @endif>
+                    <a href="{{ route("backend.user.index") }}">
+                        <i class="fa fa-users"></i> <span>Kullanıcı Yönetimi</span>
+                    </a>
+                </li>
             </ul>
         </section>
     </aside>
