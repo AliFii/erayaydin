@@ -31,12 +31,12 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::group(["as" => "backend.", "namespace" => "Backend", "prefix" => config("app.backend")], function(){
 
-        Route::group(["middleware" => "guest"], function(){
+        Route::group(["middleware" => ["guest"]], function(){
             Route::get("login", ["as" => "user.login", "uses" => "UserController@login"]);
             Route::post("login", ["as" => "user.login", "uses" => "UserController@doLogin"]);
         });
 
-        Route::group(["middleware" => "auth"], function(){
+        Route::group(["middleware" => ["auth"]], function(){
             Route::get("/", ["as" => "dashboard.index", "uses" => "DashboardController@index"]);
 
             Route::get("post", ["as" => "post.index", "uses" => "PostController@index"]);
@@ -52,6 +52,15 @@ Route::group(['middleware' => ['web']], function () {
             Route::get("page/{page}/edit", ["as" => "page.edit", "uses" => "PageController@edit"]);
             Route::put("page/{page}", ["as" => "page.update", "uses" => "PageController@update"]);
             Route::get("page/{page}/delete", ["as" => "page.destroy", "uses" => "PageController@destroy"]);
+
+            Route::get("user", ["as" => "user.index", "uses" => "UserController@index"]);
+            Route::get("user/create", ["as" => "user.create", "uses" => "UserController@create"]);
+            Route::post("user", ["as" => "user.store", "uses" => "UserController@store"]);
+            Route::get("user/{user}/edit", ["as" => "user.edit", "uses" => "UserController@edit"]);
+            Route::put("user/{user}", ["as" => "user.update", "uses" => "UserController@update"]);
+            Route::get("user/{user}/delete", ["as" => "user.destroy", "uses" => "UserController@destroy"]);
+
+            Route::get("logout", ["as" => "user.logout", "uses" => "UserController@logout"]);
         });
 
     });
