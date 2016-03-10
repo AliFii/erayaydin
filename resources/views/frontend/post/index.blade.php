@@ -6,10 +6,10 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="site-heading">
-                    <h1>Eray Aydın</h1>
+                    <h1>{{ Settings::get("site_name") }}</h1>
                     <hr class="small">
                     <span class="subheading">
-                        Laravel Artisan &middot; PHP Senior Developer &middot; Linux Lover &middot; Archy &middot; SysAd<br>
+                        {{ Settings::get("site_subtitle") }}<br>
                     </span>
                 </div>
             </div>

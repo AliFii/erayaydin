@@ -60,6 +60,9 @@ Route::group(['middleware' => ['web']], function () {
             Route::put("user/{user}", ["as" => "user.update", "uses" => "UserController@update"]);
             Route::get("user/{user}/delete", ["as" => "user.destroy", "uses" => "UserController@destroy"]);
 
+            Route::get("settings", ["as" => "settings.edit", "uses" => "SettingsController@edit"]);
+            Route::put("settings", ["as" => "settings.update", "uses" => "SettingsController@update"]);
+
             Route::get("logout", ["as" => "user.logout", "uses" => "UserController@logout"]);
         });
 

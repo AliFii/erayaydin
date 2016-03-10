@@ -89,6 +89,11 @@
                         <i class="fa fa-users"></i> <span>Kullanıcı Yönetimi</span>
                     </a>
                 </li>
+                <li @if(\Request::is(config("app.backend")."/settings*")) class="active" @endif>
+                    <a href="{{ route("backend.settings.edit") }}">
+                        <i class="fa fa-wrench"></i> <span>Sistem Ayarları</span>
+                    </a>
+                </li>
             </ul>
         </section>
     </aside>
