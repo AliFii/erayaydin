@@ -44,7 +44,8 @@ elixir(function(mix) {
         .copy(['./bower_components/iCheck/skins/square/blue.png', './bower_components/iCheck/skins/square/blue@2x.png'], 'public/assets/plugins/icheck/')
         .styles([
             './bower_components/codemirror/lib/codemirror.css',
-            './bower_components/simplemde/src/css/simplemde.css'
+            './bower_components/simplemde/src/css/simplemde.css',
+            'simplemde.css'
         ], 'public/assets/plugins/simplemde/simplemde.css')
         .scripts([
             './bower_components/codemirror/lib/codemirror.js',

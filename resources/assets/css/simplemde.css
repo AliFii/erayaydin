@@ -1,0 +1,7 @@
+.editor-toolbar.fullscreen {
+    z-index: 2000;
+}
+
+.CodeMirror-fullscreen {
+    z-index: 2000;
+}
