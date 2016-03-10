@@ -78,6 +78,11 @@
                         <i class="fa fa-pencil"></i> <span>Yazılar</span>
                     </a>
                 </li>
+                <li @if(\Request::is(config("app.backend")."/page")) class="active" @endif>
+                    <a href="{{ route("backend.page.index") }}">
+                        <i class="fa fa-file-text-o"></i> <span>Sayfalar</span>
+                    </a>
+                </li>
                 <li class="header">SİSTEM</li>
                 <li @if(\Request::is(config("app.backend")."/user*")) class="active" @endif>
                     <a href="{{ route("backend.user.index") }}">
