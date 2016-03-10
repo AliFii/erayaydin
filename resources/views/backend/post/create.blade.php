@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label("content", "İçerik") !!}
-                            {!! Form::textarea("content", old("content"), ["class" => "form-control"]) !!}
+                            {!! Form::textarea("content", old("content"), ["class" => "form-control simplemde"]) !!}
                         </div>
                     </div>
                     <!-- /.box-body -->
@@ -52,4 +52,18 @@
             </div>
         </div>
     </div>
+@stop
+
+@section("plugin.css")
+    <link rel="stylesheet" href="{{ asset("assets/plugins/simplemde/simplemde.css") }}">
+@stop
+
+@section("plugin.js")
+    <script src="{{ asset("assets/plugins/simplemde/simplemde.js") }}"></script>
+@stop
+
+@section("page.js")
+    <script>
+        var simplemde = new SimpleMDE({ element: $(".simplemde")[0] });
+    </script>
 @stop

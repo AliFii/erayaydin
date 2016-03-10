@@ -37,10 +37,17 @@ elixir(function(mix) {
             './bower_components/jquery-ui/jquery-ui.js',
             './bower_components/slimscroll/jquery.slimscroll.js',
             './bower_components/fastclick/lib/fastclick.js',
-            './bower_components/AdminLTE/dist/js/app.js',
-            ''
+            './bower_components/AdminLTE/dist/js/app.js'
         ], 'public/assets/js/backend.js')
         .less(['./bower_components/iCheck/skins/square/blue.css'], 'public/assets/plugins/icheck/icheck.css')
         .scripts(['./bower_components/iCheck/icheck.js'], 'public/assets/plugins/icheck/icheck.js')
-        .copy(['./bower_components/iCheck/skins/square/blue.png', './bower_components/iCheck/skins/square/blue@2x.png'], 'public/assets/plugins/icheck/');
+        .copy(['./bower_components/iCheck/skins/square/blue.png', './bower_components/iCheck/skins/square/blue@2x.png'], 'public/assets/plugins/icheck/')
+        .styles([
+            './bower_components/codemirror/lib/codemirror.css',
+            './bower_components/simplemde/src/css/simplemde.css'
+        ], 'public/assets/plugins/simplemde/simplemde.css')
+        .scripts([
+            './bower_components/codemirror/lib/codemirror.js',
+            './bower_components/simplemde/dist/simplemde.min.js'
+        ], 'public/assets/plugins/simplemde/simplemde.js');
 });
