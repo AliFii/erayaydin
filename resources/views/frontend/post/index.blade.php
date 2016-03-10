@@ -1,7 +1,7 @@
 @extends("frontend.layouts.master")
 
 @section("container")
-<header class="intro-header" style="background-image: url('http://www.designerresource.org/wp-content/uploads/2014/04/Free-Polygonal.png')">
+<header class="intro-header" style="background-image: url('{{ asset(Settings::get("site_image")) }}')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">

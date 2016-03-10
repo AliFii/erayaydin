@@ -13,7 +13,7 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">Sistem Ayarları</h3>
                 </div>
-                {!! Form::open(["route" => ["backend.settings.update"], "method" => "PUT", "role" => "form"]) !!}
+                {!! Form::open(["route" => ["backend.settings.update"], "method" => "PUT", "role" => "form", "files" => true]) !!}
                 <div class="box-body">
                     @if($errors->has())
                         <div class="alert alert-danger">
@@ -33,6 +33,19 @@
                     <div class="form-group">
                         {!! Form::label("site_description", "Site Açıklaması") !!}
                         {!! Form::textarea("site_description", Settings::get('site_description'), ["class" => "form-control", "placeholder" => "Site Açıklaması."]) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label("site_image", "Site Ana Resmi") !!}
+                        @if(\Settings::get("site_image"))
+                            <div class="input-group">
+                                {!! Form::file("site_image", ["class" => "form-control", "placeholder" => "Site ana resmi."]) !!}
+                                <span class="input-group-btn">
+                                    <a href="{{ asset(Settings::get("site_image")) }}" class="btn btn-primary">Görüntüle</a>
+                                </span>
+                            </div>
+                        @else
+                            {!! Form::file("site_image", ["class" => "form-control", "placeholder" => "Site ana resmi."]) !!}
+                        @endif
                     </div>
                     <div class="form-group">
                         {!! Form::label("social_twitter", "Twitter Adresi") !!}
