@@ -73,6 +73,11 @@
                         <i class="fa fa-dashboard"></i> <span>Pano</span>
                     </a>
                 </li>
+                <li @if(\Request::is(config("app.backend")."/post")) class="active" @endif>
+                    <a href="{{ route("backend.post.index") }}">
+                        <i class="fa fa-pencil"></i> <span>Yazılar</span>
+                    </a>
+                </li>
                 <li class="header">SİSTEM</li>
                 <li @if(\Request::is(config("app.backend")."/user*")) class="active" @endif>
                     <a href="{{ route("backend.user.index") }}">
